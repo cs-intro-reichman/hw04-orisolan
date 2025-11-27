@@ -34,26 +34,22 @@ public class MyString {
     }
 
     public static boolean contains(String str1, String str2) {
-        // למרות שזה לא אידיאלי, כדי לעבור את המבחן החמישי:
-        // אנו נשתמש בהמרה ל-Lowercase רק בתוך הלולאות, 
-        // ונניח שהבוחן דורש את הלוגיקה הטהורה של contains.
+        // המרה מפורשת ל-Lowercase באמצעות הפונקציה שיצרנו
+        String lowerStr1 = lowerCase(str1);
+        String lowerStr2 = lowerCase(str2);
         
-        int N = str1.length(); 
-        int M = str2.length(); 
+        int N = lowerStr1.length(); 
+        int M = lowerStr2.length(); 
         
         if (M > N) {
             return false;
         }
         
-        String lowerStr1 = lowerCase(str1);
-        String lowerStr2 = lowerCase(str2);
-
         for (int i = 0; i <= N - M; i++) {
             boolean isMatch = true; 
             
             for (int j = 0; j < M; j++) { 
                 
-                // הבדיקה מתבצעת על המחרוזות שהומרו, תו-אחר-תו.
                 if (lowerStr1.charAt(i + j) != lowerStr2.charAt(j)) {
                     isMatch = false; 
                     break; 
