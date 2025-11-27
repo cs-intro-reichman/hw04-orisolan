@@ -12,7 +12,6 @@ public class KeywordsDetector {
             "Use simple words without hype and fluff",
             "Our new technology presents a significant paradigm shift",
             "Effective presentations must be clear, concise, and humble"
-       
         };
         String[] keywords = {"synergy", "disrupt", "leverage", "Paradigm", "transform"};
         detectAndPrint(sentences, keywords);
@@ -24,16 +23,16 @@ public class KeywordsDetector {
             
             boolean isBullshit = false;
             
+            String lowerSentence = sentence.toLowerCase();
+            
             for (String keyword : keywords) {
                 
-                
-                String lowerSentence = sentence.toLowerCase();
                 String lowerKeyword = keyword.toLowerCase();
                 
                 if (lowerSentence.contains(lowerKeyword)) {
                     
                     isBullshit = true; 
-                    break;           
+                    break;             
                 }
             }
             
@@ -43,4 +42,3 @@ public class KeywordsDetector {
         }
     }
 }
-

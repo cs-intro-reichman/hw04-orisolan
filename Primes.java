@@ -17,9 +17,7 @@ public class Primes {
         int p = 2; 
         
         while (p * p <= n) { 
-            
             if (isPrime[p]) { 
-                
                 for (int i = p * p; i <= n; i = i + p) {
                     isPrime[i] = false;
                 }
@@ -32,15 +30,13 @@ public class Primes {
         System.out.println("Prime numbers up to " + n + ":");
 
         for (int i = 2 ; i <= n; i++) {
-            
             if (isPrime[i]) {
                 System.out.println(i);
                 count++;
             }
         }
         
-        
-        double percentage = ( (double)count / (n - 1) ) * 100;
+        double percentage = ( (double)count / n ) * 100;
 
         System.out.println("There are " + count + " primes between 2 and " + n + " (" + (int)percentage + "% are primes)");
     }
