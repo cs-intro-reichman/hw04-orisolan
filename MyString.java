@@ -1,66 +1,43 @@
-public class MyString {
-    public static void main(String[] args) {
-        System.out.println("Testing lowercase:");
-        System.out.println("UnHappy : " + lowerCase("UnHappy"));
-        System.out.println("This costs 15 Sheksls : " + lowerCase("This costs 15 Sheksls"));
-        System.out.println("TLV : " + lowerCase("TLV"));
-        System.out.println("lowercase : " + lowerCase("lowercase"));
-
-        System.out.println("Testing contains:");
-        System.out.println(contains("unhappy", "happy")); 
-        System.out.println(contains("happy", "unhappy")); 
-        System.out.println(contains("historical", "story")); 
-        System.out.println(contains("psychology", "psycho")); 
-        System.out.println(contains("personality", "son")); 
-        System.out.println(contains("personality", "dad")); 
-        System.out.println(contains("resignation", "sign")); 
-    }
-
+/** Returns the lowercase version of the given string. */
     public static String lowerCase(String str) {
-        int len = str.length();
-        char[] arr = new char[len]; 
-        
-        for (int i = 0; i < len; i++) {
-            char ch = str.charAt(i); 
-
-            if (ch >= 'A' && ch <= 'Z') {
-                arr[i] = (char)(ch + ('a' - 'A')); 
+        // Replace the following statement with your code
+        String strOut = "";
+        for (int i = 0; i < str.length(); i++) {
+            char c = str.charAt(i);
+            if ((c >= 'A') && ((c <= 'Z'))) {
+                c = (char) (c + 32);
+                strOut = strOut + c;
             } else {
-                arr[i] = ch;
+                strOut = strOut + c;
             }
         }
-        
-        return new String(arr); 
+        return strOut;
     }
 
+    /** If str1 contains str2, returns true; otherwise returns false. */
     public static boolean contains(String str1, String str2) {
-        // המרה מפורשת ל-Lowercase באמצעות הפונקציה שיצרנו
-        String lowerStr1 = lowerCase(str1);
-        String lowerStr2 = lowerCase(str2);
-        
-        int N = lowerStr1.length(); 
-        int M = lowerStr2.length(); 
-        
-        if (M > N) {
+        // Replace the following statement with your code
+        if (str2.length() > str1.length()) {
             return false;
         }
-        
-        for (int i = 0; i <= N - M; i++) {
-            boolean isMatch = true; 
-            
-            for (int j = 0; j < M; j++) { 
-                
-                if (lowerStr1.charAt(i + j) != lowerStr2.charAt(j)) {
-                    isMatch = false; 
-                    break; 
+        for (int i = 0; i < str1.length(); i++) {
+            boolean check = true;
+            for (int j = 0; j < str2.length(); j++) {
+                if (i+j >= str1.length()){
+                    return false;
                 }
+                    if (str1.charAt(i + j) != str2.charAt(j)) {
+                    check = false;
+
+                    break;
+                }
+
             }
-            
-            if (isMatch) {
+            if (check) {
                 return true;
             }
+
         }
-        
+
         return false;
     }
-}
