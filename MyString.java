@@ -29,7 +29,7 @@ public class MyString {
                 }
             }
 
-            if (match) return true;
+            if (match) return true; 
         }
 
         return false;
