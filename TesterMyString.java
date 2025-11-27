@@ -1,40 +1,33 @@
+public class MyString {
 
-public class TesterMyString {
-
-    public static void main(String[] args) {
-        testLowerCase();
-        testContains();
+    /** Returns lowercase version of string. */
+    public static String lowerCase(String str) {
+        String out = "";
+        for (int i = 0; i < str.length(); i++) {
+            char c = str.charAt(i);
+            if (c >= 'A' && c <= 'Z') {
+                c = (char) (c + 32);
+            }
+            out += c;
+        }
+        return out;
     }
 
-    private static void testLowerCase() {
-        int num_tests = 3;
-        System.out.println("Testing 'lowerCase':");
+    /** Returns true iff str1 contains str2. */
+    public static boolean contains(String str1, String str2) {
+        if (str2.length() > str1.length()) return false;
 
-        boolean test1 = MyString.lowerCase("").equals("");
-        boolean test2 = MyString.lowerCase("EaSy PeAsY LeMoN SqUeEzy").equals("easy peasy lemon squeezy");
-        boolean test3 = MyString.lowerCase("i love infi and intro").equals("i love infi and intro");
+        for (int i = 0; i <= str1.length() - str2.length(); i++) {
+            boolean match = true;
+            for (int j = 0; j < str2.length(); j++) {
+                if (str1.charAt(i + j) != str2.charAt(j)) {
+                    match = false;
+                    break;
+                }
+            }
+            if (match) return true;
+        }
 
-        int passed = (test1 ? 1 : 0) + (test2 ? 1 : 0) + (test3 ? 1 : 0);
-        String verdict = passed == num_tests ? "(Passed)": "Failed";
-
-        System.out.println("Passed " + passed + "/" + num_tests + " tests " + verdict);
-    }
-
-    private static void testContains() {
-        int num_tests = 5;
-        System.out.println("Testing 'contains':");
-
-        boolean test1 = MyString.contains("baba yaga", "baba");
-        boolean test2 = MyString.contains("baba yaga", "");
-        boolean test3 = !MyString.contains("baba yaga", "John Wick is the baba yaga");
-        boolean test4 = !MyString.contains("baba yaga", "Yaga");
-        boolean test5 = !MyString.contains("baba yaga", "babayaga");
-
-
-        int passed = (test1 ? 1 : 0) + (test2 ? 1 : 0) + (test3 ? 1 : 0) + (test4 ? 1 : 0) +
-                     (test5 ? 1 : 0);
-        String verdict = passed == num_tests ? "(Passed)": "Failed";
-
-        System.out.println("Passed " + passed + "/" + num_tests + " tests " + verdict);
+        return false;
     }
 }
