@@ -89,6 +89,6 @@ public class ArrCharOps {
         }
 
         return (str1.length() < str2.length() ? -1 :
-                str1.length() > str2.length() ? 1 : 0);
+                str1.length() > str2.length() ? 1 : 0); 
     }
 }
