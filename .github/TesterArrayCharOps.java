@@ -9,7 +9,7 @@ public class TesterArrayCharOps {
         testConcat();
         testSubArray();
         testCompareTo();
-        testHashCode();
+        testHashCode(); 
     }
 
     private static void testCharAt() {
